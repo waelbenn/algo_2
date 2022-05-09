@@ -1,0 +1,24 @@
+ALGORITHM algo_array_problem1
+VAR
+    set1 : ARRAY_OF INTEGER[7]:=[15,8,19,65,78,3,12];
+    set2 : ARRAY_OF INTEGER[7]:=[21,8,9,80,78,3,22];
+    tab : ARRAY_OF INTEGER[];
+    found : BOOLEAN;
+    sum_distinct:INTEGER:=0;
+    sum_commun:INTEGER:=0;
+
+BEGIN
+    tab:=concat(set1,set2)
+    found:=false;
+FOR i FROM 0 TO tab.lenght  DO
+  FOR j FROM 0 TO tab.lenght  DO
+  IF (tab[i]=tab[j] and i<>j) THEN
+      found:=true
+      sum_commun=sum_commun+tab[i]
+      break;
+  END_IF
+END_FOR
+IF (found=false) THEN
+    sum_distinct=sum_distinct+tab[i]
+END_IF
+END
